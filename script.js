@@ -11,7 +11,7 @@ let selectedCategory = "";
 
 // load tasks from local storage
 function loadTasks() {
-  const tasks = JSON.parse(sessionStorage.getItem("tasks")) || [];
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   taskList.innerHTML = "";
   tasks.forEach((task) => createTask(task.text, task.category, task.done));
 }
@@ -27,7 +27,7 @@ function saveTasks() {
       };
     }
   );
-  sessionStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 function updateCategoryCount() {
